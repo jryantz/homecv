@@ -1,0 +1,36 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.code-workspace
+
+# Environment files
+venv/
+.env/
+.venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+
+.env
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Python
+__pycache__/
+
+# Artifacts
+images/
+*.db
+*.sqlite3
+
+# Models
+homecv/models/*.pt
+runs/
