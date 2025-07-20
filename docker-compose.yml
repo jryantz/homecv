@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  homecv:
+    build: .
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./images:/app/images
+    environment:
+      - FLASK_ENV=production
+    restart: unless-stopped

@@ -65,7 +65,9 @@ homecv/
 - Home Assistant instance with camera integration
 - Camera entity that provides snapshots
 
-### Installation
+### 🛠️ Local Development Installation
+
+For local development and testing:
 
 1. **Clone the repository**
    ```bash
@@ -97,12 +99,48 @@ homecv/
    MODEL_PATH=./homecv/models/yolo11n.pt
    ```
 
-5. **Run the application**
+5. **Run the development server**
    ```bash
    python run.py
    ```
 
-The service will start on `http://localhost:9000`
+The Flask development server will start on `http://localhost:9000` with debug features enabled.
+
+### 🐳 Production Deployment (Recommended)
+
+For production deployment with proper WSGI server and container isolation:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/homecv.git
+   cd homecv
+   ```
+
+2. **Configure environment**
+   ```bash
+   cp .env.example .env
+   ```
+
+   Edit `.env` with your production settings:
+   ```env
+   HOMEASSISTANT_URL=https://your-ha-instance.com
+   HOMEASSISTANT_TOKEN=your_long_lived_access_token
+   
+   MODEL_PATH=./homecv/models/yolo11n.pt
+   ```
+
+3. **Deploy with Docker Compose (Recommended)**
+   ```bash
+   docker compose up -d
+   ```
+
+4. **Or build and run manually**
+   ```bash
+   docker build -t homecv .
+   docker run -d -p 9000:9000 -v ./images:/app/images --name homecv homecv
+   ```
+
+The production service runs with Gunicorn WSGI server on `http://localhost:9000` with multiple workers for better performance and reliability.
 
 ## 🔧 Configuration
 
@@ -110,7 +148,7 @@ The service will start on `http://localhost:9000`
 
 | Variable              | Description                      | Default                      | Required |
 |-----------------------|----------------------------------|------------------------------|----------|
-| `HOMEASSISTANT_URL`   | Your Home Assistant instance URL | -                            | ✅        |
+| `HOMEASSISTANT_URL`   | Your Home Assistant instance URL |                              | ✅        |
 | `HOMEASSISTANT_TOKEN` | Long-lived access token          | `default-token`              | ✅        |
 | `MODEL_PATH`          | Path to YOLO model file          | `./homecv/models/yolo11n.pt` | ❌        |
 

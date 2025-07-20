@@ -1,5 +1,6 @@
 black
 flask
+gunicorn
 numpy
 opencv-python-headless
 python-dotenv
