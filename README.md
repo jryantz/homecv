@@ -32,12 +32,13 @@ someone is present in a predefined zone, enabling smart home automations based o
 
 ```
 homecv/
-├── 📁 api/                   # Flask API layer
+├── api/                      # Flask API layer
 │   ├── __init__.py           # App factory
 │   └── routes/               # API endpoints
 │       ├── __init__.py       # Route registration
 │       └── check.py          # Detection endpoints
-├── 📁 homecv/                # Core application logic
+│
+├── homecv/                   # Core application logic
 │   ├── analyzers/            # Computer vision analyzers
 │   │   ├── base.py           # Base analyzer with YOLO integration
 │   │   └── front_door.py     # Front door specific detection logic
@@ -45,14 +46,14 @@ homecv/
 │   │   └── hass/             # Home Assistant integration
 │   │       └── client.py     # HA API client
 │   ├── models/               # YOLO model files
-│   │   ├── yolo11n.pt        # YOLO v11 nano model
-│   │   └── yolov8n.pt        # YOLO v8 nano model (backup)
 │   ├── snapshots/            # Image storage utilities
 │   │   └── storage.py        # Snapshot saving functionality
 │   └── config.py             # Configuration management
-├── 📁 images/                # Stored images (debug mode)
+│
+├── images/                   # Stored images (debug mode)
 │   ├── originals/            # Original camera snapshots
 │   └── snapshots/            # Processed images with detections
+│
 └── run.py                    # Application entry point
 ```
 
