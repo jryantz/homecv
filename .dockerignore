@@ -1,0 +1,51 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.code-workspace
+
+# Environment files
+venv/
+.env/
+.venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+
+.env
+
+# Logs and temp files
+*.log
+*.tmp
+logs/
+tmp/
+temp/
+.tmp/
+
+# Python cache and build files
+__pycache__/
+
+# Artifacts and tests
+images/
+tests/
+
+# Documentation and CI
+*.md
+README*
+CHANGELOG*
+LICENSE*
+.github/
+
+# Docker and deployment files
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Git and version control
+.git/
+.gitignore
