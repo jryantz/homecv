@@ -28,6 +28,7 @@ RUN groupadd -g 1000 homecv && \
 
 # Install only runtime dependencies
 RUN apt-get update && apt-get install -y \
+    curl \
     libglib2.0-0 \
     libfreetype6 \
     libpng16-16 \

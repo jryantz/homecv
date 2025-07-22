@@ -1,12 +1,16 @@
-version: '3.8'
-
 services:
   homecv:
     build: .
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production
     ports:
       - "9000:9000"
     volumes:
       - ./images:/app/images
-    environment:
-      - FLASK_ENV=production
-    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
